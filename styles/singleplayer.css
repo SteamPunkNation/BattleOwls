@@ -1,0 +1,133 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.game {
+  position: relative;
+  background: url(../assets/Background.png);
+  background-size: 100vw 100%;
+}
+
+#upper-bar {
+  position: absolute;
+  width: 100vw;
+  height: 102px;
+}
+
+#topBar {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+}
+
+#egg-counter {
+  position: absolute;
+  width: 83px;
+  height: 102px;
+  box-shadow: 4px, 4px, 4px, 0px, rgba(0, 0, 0, 0.2);
+}
+
+#points {
+  position: absolute;
+  /* width: 210px; */
+  left: 83px;
+  top: 5%;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+#sp-text {
+  position: relative;
+  left: 50%;
+  top: 5%;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+#speedBG {
+  position: absolute;
+  width: 80px;
+  height: 79px;
+  left: 5vw;
+  bottom: 5vh;
+  border-radius: 15px;
+  background-color: rgba(199, 214, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+#speed-title {
+  position: relative;
+  text-align: center;
+  top: -5vh;
+}
+
+#speedValue {
+  position: relative;
+  text-align: center;
+  top: -5vh;
+  font-size: 30px;
+}
+
+/* Owls */
+
+#player {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px;
+  z-index: -1;
+  border-color: black;
+  border-style: none;
+  padding-bottom: 3.25em;
+}
+
+/* Worms */
+
+#worm {
+  position: absolute;
+  width: 5.5%;
+  height: 10%;
+  border: 2px;
+  z-index: -1;
+  border-color: red;
+  border-style: none;
+  border-bottom-right-radius: 10em;
+  border-top-left-radius: 7em;
+}
+
+/* Eggs */
+
+#egg {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  border: 2px;
+  z-index: -1;
+  border-color: white;
+  border-style: none;
+  padding-bottom: 6em;
+  padding-right: 5em;
+  border-top-left-radius: 4em;
+  border-top-right-radius: 4em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+}

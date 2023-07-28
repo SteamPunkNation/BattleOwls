@@ -1,0 +1,460 @@
+html {
+  position: relative;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff url(../assets/mainMenu.png) center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+body {
+  height: 95vh;
+  margin-bottom: 5vh - 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-menu {
+  margin: 3%;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 5px 5px;
+  grid-template-areas:
+    "playerInfo menuSelection customization"
+    "options menuSelection customization"
+    "challenges challenges customization";
+}
+
+
+/***********Menu Selection***********/
+.menuSelection {
+  grid-area: menuSelection;
+  position: relative;
+  width: 485px;
+  height: 485px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.title {
+  position: absolute;
+  width: 600px;
+  height: 78px;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'Tiro Telugu', 'sourcesanspro', sans-serif;
+  font-style: normal;
+  font-size: 62px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 15px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.singleplayerBtn {
+  top: calc(15% + 20% + 78px);
+  position: absolute;
+  width: 424px;
+  height: 76px;
+  border-radius: 15px;
+  background-color: rgba(78, 255, 82, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: 'Tiro Telugu';
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 10px;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.singleplayerBtn:hover {
+  border: 1px solid black;
+  fill: gray;
+}
+
+.multiplayerBtn {
+  top: calc(20% + 20% + 78px + 78px + 10px);
+  position: absolute;
+  width: 424px;
+  height: 76px;
+  border-radius: 15px;
+  background-color: rgba(78, 255, 82, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: 'Tiro Telugu';
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 10px;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.multiplayerBtn:hover {
+  border: 1px solid black;
+  fill: gray;
+}
+
+/***********Player Info***********/
+
+.playerInfo {
+  grid-area: playerInfo;
+  position: relative;
+  width: 385px;
+  height: 230px;
+  background-color: rgba(255, 255, 255, 1);
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  padding: 15px;
+  display: grid;
+  grid-template-areas:
+    "pfp highScore"
+    "xpBar xpBar";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.profile {}
+
+.profilePicture {
+  width: 100px;
+}
+
+#playerName {
+  text-align: center;
+  margin: 0;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  display: flex;
+}
+
+.highScore {}
+
+.highScoreTitle {
+  width: 166px;
+  height: 44px;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  margin: 0;
+}
+
+.highScoreBG {
+  width: 173px;
+  height: 33px;
+  border-radius: 5px;
+  background-color: rgba(199, 214, 255, 1);
+  margin: 0%;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#highScoreValue {
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  margin: 0;
+}
+
+.xpBar {
+  width: 385px;
+  height: 64px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 255, 0);
+}
+
+.xpBar span {
+  display: block;
+  height: 100%;
+  width: 45;
+  color: rgb(255, 251, 251);
+  line-height: 30px;
+  position: absolute;
+  text-align: end;
+  padding-right: 5px;
+  background-color: lime;
+}
+
+
+/***********Customization***********/
+.customization {
+  grid-area: customization;
+  position: relative;
+  width: 435px;
+  height: auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  flex-direction: column;
+}
+
+.customization h2,
+.customization h3,
+.customization .skinSelection {
+  margin: 0;
+}
+
+.skinSelection {
+  display: flex;
+  align-items: center;
+}
+
+.skinSelection button,
+.skinSelection img {
+  margin: 1.5rem;
+}
+
+#skinsTitle {
+  position: relative;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-decoration: none;
+  text-transform: none;
+  padding-bottom: 2.5rem;
+}
+
+#skinName {
+  position: relative;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-decoration: none;
+  text-transform: none;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+#unlockStatus {
+  position: relative;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-decoration: none;
+  text-transform: none;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.triangle-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.triangle-buttons__triangle {
+  border-style: solid;
+
+  /* Size */
+  height: 0px;
+  width: 0px;
+}
+
+.triangle-buttons__triangle--r {
+  border-color: transparent transparent transparent #8eacff;
+  border-width: 4rem 0 4rem 4rem;
+}
+
+.triangle-buttons__triangle--l {
+  border-color: transparent #8eacff transparent transparent;
+  border-width: 4rem 4rem 4rem 0;
+}
+
+#selectedSkin {
+  width: 200px;
+}
+
+/***********Options***********/
+.options {
+  grid-area: options;
+  position: relative;
+  width: 385px;
+  height: 220px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.optionsText {
+  left: 130px;
+  top: -10px;
+  position: absolute;
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.optionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.optionsList li {
+  margin-bottom: 10px;
+}
+
+.optionsList li label {
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: 5px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.optionsList input {
+  width: 30px;
+  height: 30px;
+}
+
+
+/***********Challenges***********/
+.challenges {
+  grid-area: challenges;
+  position: relative;
+  width: auto;
+  height: 175px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  display: grid;
+  grid-template-areas:
+    "weeklyText weeklyMission progressBar"
+    "dailyText dailyMission progressBar";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.challenges h2 {
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-overflow: none;
+  padding-right: 10px;
+}
+
+.challenges p {
+  color: rgba(0, 0, 0, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-overflow: none;
+}
+
+.progressBar {
+  width: 250px;
+  height: 64px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 255, 0);
+}
+
+.progressBar span {
+  display: block;
+  height: 100%;
+  width: 45;
+  color: rgb(255, 251, 251);
+  line-height: 30px;
+  position: absolute;
+  text-align: end;
+  padding-right: 5px;
+  background-color: lime;
+}
