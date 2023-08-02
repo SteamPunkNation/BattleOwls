@@ -2,6 +2,9 @@
   const player = document.getElementById('player');
   const worm = document.getElementById('worm');
   const egg = document.getElementById('egg');
+  const obstacle = document.getElementById('landmine');
+  const restartBtn = document.getElementById('restartBtn');
+  const quitBtn = document.getElementById('quitBtn');
   let direction = '';
   let speedMultiplier = 0.25;
   let vw = window.innerWidth;
@@ -11,9 +14,12 @@
   let moveDistance = 2;
   let eggCount = 0;
   let wormCount =0;
-  let AccelerateAbility=true;
+  let AccelerateAbility=false;
+  let SlowTime=true;
   let i=0;
   let eggs = [];
+  let C=0;
+  let t=0;
 // Game functions
   function movePlayer() {
     switch (direction) {
@@ -58,6 +64,25 @@
     function moveEgg() {
       
     }
+
+  restartBtn.addEventListener('click', function() {
+    console.log('Joined singleplayer')
+    // Redirect to the singleplayer.html page when the button is clicked
+    window.location.replace('singleplayer.html');
+  });
+  quitBtn.addEventListener('click', function() {
+    console.log('QUIT')
+    // Redirect to mainmenu.html page when the button is clicked
+    window.location.replace('/');
+  });
+
+  function gamerOverOverlayOn(){
+    document.getElementById('gameOverMenu').style.display = 'flex';
+  }
+
+  function gamerOverOverlayOff(){
+    document.getElementById('gameOverMenu').style.display = 'none';
+  }
   
   document.addEventListener('keydown', (event) => {
     const keyPressed = event.key.toLowerCase();
@@ -83,6 +108,22 @@
         direction = 'pause';
         speedValue.textContent = `0`; //TODO FIX
         break;
+      case 'q':
+      case '0':
+        if (SlowTime==true&&C<3&&t==0)
+        {
+          moveDistance/=4;
+          speedMultiplier/=4;
+          C++;
+          t++;
+        }
+        else if (SlowTime==true&&C<=3&&t==1)
+        {
+          moveDistance*=4;
+          speedMultiplier*=4;
+          t--;
+        }
+        break;
     }
   });
 
@@ -93,7 +134,15 @@
     worm.style.right = Math.floor(Math.random() * maxRight) + 'px';
     worm.style.bottom = Math.floor(Math.random() * maxLeft) + 'px';
   }
+  
+    function obstacleSpawn() {
+    const maxRight = vw - obstacle.clientWidth;
+    const maxLeft = vh - obstacle.clientWidth - 100;
 
+    obstacle.style.right = Math.floor(Math.random() * maxRight) + 'px';
+    obstacle.style.bottom = Math.floor(Math.random() * maxLeft) + 'px';
+  }
+    
   function setHUDSpeed(){
     speedValue.textContent = `${moveDistance}`;
   }
@@ -116,11 +165,16 @@ eggs.push(newEgg);
     
     const playerCollider = player.getBoundingClientRect();
     const wormCollider = worm.getBoundingClientRect();
+    const obstacleCollider = obstacle.getBoundingClientRect();
     
     if (playerCollider.left < wormCollider.right && playerCollider.right > wormCollider.left &&       playerCollider.top < wormCollider.bottom && playerCollider.bottom > wormCollider.top){
       wormSpawn();
       moveDistance += speedMultiplier;
       wormCount++;
+      if (SlowTime==true&&t==1)
+      {
+        wormCount--;
+      }
       if (AccelerateAbility==true)
       {
       moveDistance += speedMultiplier*3;
@@ -132,6 +186,10 @@ eggs.push(newEgg);
         eggCount++;
         //eggSpawn(); // Commented out eggSpawn to test the game without the buggy egg spawns, uncomment it when you want to test eggSpawn.
       }
+    }
+    if (playerCollider.left < obstacleCollider.right && playerCollider.right > obstacleCollider.left && playerCollider.top < obstacleCollider.bottom && playerCollider.bottom > obstacleCollider.top){ 
+      moveDistance=0;
+      gamerOverOverlayOn();
     }
     if(playerCollider.left>vw)
       x=0;
@@ -153,8 +211,10 @@ eggs.push(newEgg);
   }
 
 
-  //Game Init 
+  //Game Init
+  gamerOverOverlayOff(); 
   wormSpawn();
+  obstacleSpawn();
   gameLoop();
 });
 

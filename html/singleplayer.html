@@ -5,9 +5,24 @@
   <title>Battle Owls</title>
   <link rel="stylesheet" href="../styles/singleplayer.css">
   <script src="../scripts/singleplayer.js"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYQPRQV59"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WMYQPRQV59');
+</script>
 </head>
 
 <body class="game">
+  <!-- Game Over Menu -->
+  <div id="gameOverMenu">
+    <h2 id="gameOverTitle">Game Over</h2>
+    <button id="restartBtn">Restart</button>
+    <button id="quitBtn">Quit</button>
+  </div>
   <!-- Upper game -->
   <div id="upperBar">
     <!-- Blue Bar -->
@@ -38,6 +53,10 @@
     <div id="egg">
       <img src="../assets/eggs/Egg Clean.png" alt="Egg" width=100px>
     </div>
+    <!-- Obstacles -->
+    <div id="landmine">
+      <img src="../assets/Obstacle.png" alt="Landmine" width=100%>
+    </div>
     <!-- Speed Section -->
     <div id="speedBG">
       <!-- Speed Text -->
@@ -48,6 +67,17 @@
       <p id="speedValue">
         0
       </p>
+    </div>
+    <!-- Ability Section -->
+    <div id="abilityBG">
+      <!-- Ability Section -->
+      <h3 id="ability-title">
+        Ability
+      </h3>
+      <!-- Ability Icon -->
+      <div id="ability">
+        <img src="../assets/Slow Time 3.png" alt="Ability" width=100%>
+      </div>
     </div>
   </div>
 </body>

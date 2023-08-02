@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
     singleplayerBtn.addEventListener('click', function() {
       console.log('Joined singleplayer')
       // Redirect to the singleplayer.html page when the button is clicked
-      window.location.href = '../html/singleplayer.html';
+      window.location.replace('../html/singleplayer.html');
     });
   
     multiplayerBtn.addEventListener('click', function() {
       console.log('Joined multiplayer')
       // Redirect to the multiplayer.html page when the button is clicked
-      window.location.href = '../html/multiplayer.html';
+      // window.location.replace('../html/multiplayer.html');
     });
   
     soundSelect.addEventListener('click', function() {

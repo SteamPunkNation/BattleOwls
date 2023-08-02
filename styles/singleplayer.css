@@ -87,6 +87,44 @@ html {
   font-size: 30px;
 }
 
+#abilityBG{
+  position: absolute;
+  width: 80px;
+  height: 79px;
+  left: 20vw;
+  bottom: 5vh;
+  border-radius: 15px;
+  background-color: rgba(199, 214, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+#ability-title{
+  position: relative;
+  text-align: center;
+  top: -5vh;
+}
+
+#ability{
+  position: relative;
+  bottom: 15vh;
+  width: 350%;
+  height: 350%;
+  left: -15vw;
+  /* Size also might need to be fixed for the images might need to be done to the files themselves to work*/
+  /* Needs to be changed to set image to whatever ability is chosen */
+}
+/* Obstacles */ 
+
+#landmine {
+  position: absolute;
+  width: 10%;
+  height: 1%;
+  border: 2px;
+  z-index: -1;
+  border-color: red;
+  border-style: none;
+  padding-bottom: 6px;
+}
 /* Owls */
 
 #player {
@@ -130,4 +168,76 @@ html {
   border-top-right-radius: 4em;
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
+}
+
+/******************* Game Over Menu**********************/
+
+#gameOverMenu {
+  display: flex;
+  position: absolute;
+  width: 486px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 1);
+  align-items: center;
+  flex-direction: column;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+#gameOverTitle {
+  /* box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2); */
+  color: rgba(255, 255, 255, 1);
+  font-family: 'sourcesanspro';
+  font-style: normal;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  margin:0;
+  margin-top: 15%;
+}
+
+#restartBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: 'Tiro Telugu';
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0,0,0, 1);
+  margin-top: 20%;
+}
+
+#quitBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: 'Tiro Telugu';
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0,0,0, 1);
+  margin-top: 10%;
 }
