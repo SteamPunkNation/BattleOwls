@@ -144,7 +144,6 @@ html {
   z-index: -1;
   border-color: black;
   border-style: none;
-  padding-bottom: 3.25em;
 }
 
 /* Worms */
@@ -280,6 +279,7 @@ html {
   margin: 0;
   margin-top: 15%;
 }
+
 #resumeBtn {
   width: 254px;
   height: 74px;
@@ -297,6 +297,7 @@ html {
   color: rgba(0, 0, 0, 1);
   margin-top: 20%;
 }
+
 #restartPBtn {
   width: 254px;
   height: 74px;
