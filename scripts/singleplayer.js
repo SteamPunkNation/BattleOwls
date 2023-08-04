@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   quitBtn.addEventListener("click", function () {
     console.log("QUIT");
     // Redirect to mainmenu.html page when the button is clicked
-    window.location.replace("/");
+    window.location.replace("/BattleOwls");
   });
 
   restartPBtn.addEventListener("click", function () {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   quitPBtn.addEventListener("click", function () {
     console.log("QUIT");
     // Redirect to mainmenu.html page when the button is clicked
-    window.location.replace("/");
+    window.location.replace("/BattleOwls");
   });
   resumeBtn.addEventListener("click", function () {
     console.log("RESUME");
