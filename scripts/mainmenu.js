@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   singleplayerBtn.addEventListener("click", function () {
     console.log("Joined singleplayer");
     // Redirect to the singleplayer.html page when the button is clicked
-    window.location.replace("../html/singleplayer.html");
+    window.location.replace("../BattleOwls/html/singleplayer.html");
   });
 
   multiplayerBtn.addEventListener("click", function () {
