@@ -17,15 +17,13 @@ html::before {
 }
 
 body {
-  height: 95vh;
-  margin-bottom: 5vh - 8;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .main-menu {
-  margin: 3%;
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto auto 1fr;
@@ -35,7 +33,6 @@ body {
     "options menuSelection customization"
     "challenges challenges customization";
 }
-
 
 /***********Menu Selection***********/
 .menuSelection {
@@ -57,7 +54,7 @@ body {
   width: 600px;
   height: 78px;
   color: rgba(0, 0, 0, 1);
-  font-family: 'Tiro Telugu', 'sourcesanspro', sans-serif;
+  font-family: "Tiro Telugu", "sourcesanspro", sans-serif;
   font-style: normal;
   font-size: 62px;
   font-weight: bold;
@@ -80,7 +77,7 @@ body {
   background-color: rgba(78, 255, 82, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-style: none;
-  font-family: 'Tiro Telugu';
+  font-family: "Tiro Telugu";
   font-style: normal;
   font-size: 36px;
   font-weight: 400;
@@ -105,7 +102,7 @@ body {
   background-color: rgba(78, 255, 82, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-style: none;
-  font-family: 'Tiro Telugu';
+  font-family: "Tiro Telugu";
   font-style: normal;
   font-size: 36px;
   font-weight: 400;
@@ -142,7 +139,8 @@ body {
   grid-template-rows: auto 1fr;
 }
 
-.profile {}
+.profile {
+}
 
 .profilePicture {
   width: 100px;
@@ -152,7 +150,7 @@ body {
   text-align: center;
   margin: 0;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -163,13 +161,14 @@ body {
   display: flex;
 }
 
-.highScore {}
+.highScore {
+}
 
 .highScoreTitle {
   width: 166px;
   height: 44px;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 26px;
   font-weight: 400;
@@ -195,7 +194,7 @@ body {
 
 #highScoreValue {
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 20px;
   font-weight: 400;
@@ -224,7 +223,6 @@ body {
   padding-right: 5px;
   background-color: lime;
 }
-
 
 /***********Customization***********/
 .customization {
@@ -261,7 +259,7 @@ body {
 #skinsTitle {
   position: relative;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 50px;
   font-weight: bold;
@@ -275,7 +273,7 @@ body {
 #skinName {
   position: relative;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -290,7 +288,7 @@ body {
 #unlockStatus {
   position: relative;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -332,7 +330,6 @@ body {
   width: 200px;
 }
 
-
 /***********Options***********/
 .options {
   grid-area: options;
@@ -353,7 +350,7 @@ body {
   top: -10px;
   position: absolute;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -378,7 +375,7 @@ body {
 
 .optionsList li label {
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: normal;
@@ -392,7 +389,6 @@ body {
   width: 30px;
   height: 30px;
 }
-
 
 /***********Challenges***********/
 .challenges {
@@ -416,7 +412,7 @@ body {
 
 .challenges h2 {
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -430,7 +426,7 @@ body {
 
 .challenges p {
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: normal;

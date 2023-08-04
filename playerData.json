@@ -1,10 +1,10 @@
 {
-  "playerName" : "Guest",
+  "playerName": "Guest",
   "highScore": 25,
   "currentLevel": 1,
   "currentXP": 4,
   "currentSkinIndex": 0,
-  "options":[
+  "options": [
     {
       "sound": true,
       "hideNames": false,
@@ -14,30 +14,30 @@
   "cosmetics": [
     {
       "skin0": {
-          "name" : "Default",
-          "levelRequirement": 0,
-          "unlocked": true
-    },
+        "name": "Default",
+        "levelRequirement": 0,
+        "unlocked": true
+      },
       "skin1": {
-          "name" : "Red",
-          "levelRequirement": 1,
-          "unlocked": true
-    },
+        "name": "Red",
+        "levelRequirement": 1,
+        "unlocked": true
+      },
       "skin2": {
-          "name" : "Blue",
-          "levelRequirement": 5,
-          "unlocked": false
-    },
+        "name": "Blue",
+        "levelRequirement": 5,
+        "unlocked": false
+      },
       "skin3": {
-          "name" : "Green",
-          "levelRequirement": 10,
-          "unlocked": false
-    },
+        "name": "Green",
+        "levelRequirement": 10,
+        "unlocked": false
+      },
       "skin4": {
-          "name" : "Null",
-          "levelRequirement": 15,
-          "unlocked": false
-    }
+        "name": "Null",
+        "levelRequirement": 15,
+        "unlocked": false
+      }
     }
   ]
 }

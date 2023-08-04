@@ -1,99 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Battle Owls - Main Menu</title>
-  <link rel="stylesheet" href="styles/mainmenu.css">
-  <script src="scripts/mainmenu.js"></script>
-  <!-- <script src="jsonTestScript.js"></script> -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYQPRQV59"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <title>Battle Owls - Main Menu</title>
+    <link rel="stylesheet" href="styles/mainmenu.css" />
+    <script src="scripts/mainmenu.js"></script>
+    <!-- <script src="jsonTestScript.js"></script> -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WMYQPRQV59"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-WMYQPRQV59');
-</script>
-</head>
+      gtag("config", "G-WMYQPRQV59");
+    </script>
+  </head>
 
-<!-- Main Menu -->
+  <!-- Main Menu -->
 
-<body>
-  <div class="main-menu">
-    <div class="playerInfo">
-      <div class="profile">
-        <img src="assets/default-pfp.png" alt="default pfp" class="profilePicture" id="pfp">
-        <h2 id="playerName">
-          Guest
-        </h2>
-      </div>
-      <div class="highScore" id="highScore">
-        <h2 class="highScoreTitle">High Score</h2>
-        <div class="highScoreBG">
-          <p id="highScoreValue">
-            0
-          </p>
+  <body>
+    <div class="main-menu">
+      <div class="playerInfo">
+        <div class="profile">
+          <img
+            src="assets/default-pfp.png"
+            alt="default pfp"
+            class="profilePicture"
+            id="pfp"
+          />
+          <h2 id="playerName">Guest</h2>
         </div>
+        <div class="highScore" id="highScore">
+          <h2 class="highScoreTitle">High Score</h2>
+          <div class="highScoreBG">
+            <p id="highScoreValue">0</p>
+          </div>
+        </div>
+        <div class="xpBar" id="xpBar"></div>
       </div>
-      <div class="xpBar" id="xpBar">
-
+      <div class="options">
+        <h2 class="optionsText">Options</h2>
+        <ul class="optionsList">
+          <li>
+            <input type="checkbox" id="soundSelect" name="sound" />
+            <label>Sound</label>
+          </li>
+          <li>
+            <input type="checkbox" id="hideNameSelect" name="sound" />
+            <label>Hide names</label>
+          </li>
+          <li>
+            <input type="checkbox" id="hintsSelect" name="hints" />
+            <label>Hints</label>
+          </li>
+        </ul>
+      </div>
+      <div class="menuSelection">
+        <h1 class="title">
+          BATTLE <br />
+          OWLS
+        </h1>
+        <button class="singleplayerBtn">Singleplayer</button>
+        <button class="multiplayerBtn">Multiplayer</button>
+      </div>
+      <div class="customization">
+        <h2 id="skinsTitle">Skins</h2>
+        <h3 id="skinName">Default</h3>
+        <div class="skinSelection">
+          <button id="leftArrow" class="triangle-buttons">
+            <div
+              class="triangle-buttons__triangle triangle-buttons__triangle--l"
+            ></div>
+          </button>
+          <img
+            id="selectedSkin"
+            src="assets/owls/Owl.png"
+            alt="Selected Skin"
+          />
+          <button id="rightArrow" class="triangle-buttons">
+            <div
+              class="triangle-buttons__triangle triangle-buttons__triangle--r"
+            ></div>
+          </button>
+        </div>
+        <h3 id="unlockStatus">Unlocked</h3>
+      </div>
+      <div class="challenges">
+        <h2>Weekly Challenges:</h2>
+        <p>Challenge 1</p>
+        <div class="progressBar"></div>
+        <h2>Daily Challenges:</h2>
+        <p>Challenge 2</p>
+        <div class="progressBar"></div>
+      </div>
+      <div class="saveData">
+        <button id="deleteSave">Delete Save</button>
+        <button id="downloadSave">Download Save</button>
       </div>
     </div>
-    <div class="options">
-      <h2 class="optionsText">Options</h2>
-      <ul class="optionsList">
-        <li>
-          <input type="checkbox" id="soundSelect" name="sound">
-          <label>Sound</label>
-        </li>
-        <li>
-          <input type="checkbox" id="hideNameSelect" name="sound">
-          <label>Hide names</label>
-        </li>
-        <li>
-          <input type="checkbox" id="hintsSelect" name="hints">
-          <label>Hints</label>
-        </li>
-      </ul>
-    </div>
-    <div class="menuSelection">
-      <h1 class="title">
-        BATTLE <br> OWLS
-      </h1>
-      <button class="singleplayerBtn">
-        Singleplayer
-      </button>
-      <button class="multiplayerBtn">
-        Multiplayer
-      </button>
-    </div>
-    <div class="customization">
-      <h2 id="skinsTitle">Skins</h2>
-      <h3 id="skinName">Default</h3>
-      <div class="skinSelection">
-        <button id="leftArrow" class="triangle-buttons">
-          <div class="triangle-buttons__triangle triangle-buttons__triangle--l"></div>
-        </button>
-        <img id="selectedSkin" src="assets/owls/Owl.png" alt="Selected Skin">
-        <button id="rightArrow" class="triangle-buttons">
-          <div class="triangle-buttons__triangle triangle-buttons__triangle--r"></div>
-        </button>
-      </div>
-      <h3 id="unlockStatus">Unlocked</h3>
-    </div>
-    <div class="challenges">
-      <h2>Weekly Challenges:</h2>
-      <p>Challenge 1</p>
-      <div class="progressBar"></div>
-      <h2>Daily Challenges:</h2>
-      <p>Challenge 2</p>
-      <div class="progressBar"></div>
-    </div>
-    <div class="saveData">
-      <button id="deleteSave">Delete Save</button>
-      <button id="downloadSave">Download Save</button>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

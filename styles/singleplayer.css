@@ -14,31 +14,30 @@ html {
 #upper-bar {
   position: absolute;
   width: 100vw;
-  height: 102px;
+  height: 6.25rem;
 }
 
 #topBar {
   position: absolute;
   width: 100%;
-  height: 100px;
+  height: 6.25rem;
   border-radius: 15px;
   background-color: rgba(142, 172, 255, 1);
 }
 
 #egg-counter {
   position: absolute;
-  width: 83px;
-  height: 102px;
+  height: 5.625rem;
   box-shadow: 4px, 4px, 4px, 0px, rgba(0, 0, 0, 0.2);
+  margin: 4px;
 }
 
 #points {
   position: absolute;
   /* width: 210px; */
-  left: 83px;
-  top: 5%;
+  left: 5rem;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -49,11 +48,11 @@ html {
 }
 
 #sp-text {
-  position: relative;
-  left: 50%;
+  position: absolute;
+  right: 45%;
   top: 5%;
   color: rgba(0, 0, 0, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 30px;
   font-weight: bold;
@@ -61,14 +60,15 @@ html {
   letter-spacing: 0px;
   text-decoration: none;
   text-transform: none;
+  text-align: center;
 }
 
-#speedBG {
+.speedBG {
   position: absolute;
-  width: 80px;
-  height: 79px;
-  left: 5vw;
-  bottom: 5vh;
+  width: 5rem;
+  height: 5rem;
+  left: 5rem;
+  bottom: 3rem;
   border-radius: 15px;
   background-color: rgba(199, 214, 255, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
@@ -77,60 +77,69 @@ html {
 #speed-title {
   position: relative;
   text-align: center;
-  top: -5vh;
+  margin: 0;
 }
 
 #speedValue {
   position: relative;
   text-align: center;
-  top: -5vh;
-  font-size: 30px;
+  font-size: 50px;
+  margin: 0;
 }
 
-#abilityBG{
+#abilityBG {
   position: absolute;
-  width: 80px;
-  height: 79px;
-  left: 20vw;
-  bottom: 5vh;
+  width: 5rem;
+  height: 5rem;
+  left: 15rem;
+  bottom: 3rem;
   border-radius: 15px;
   background-color: rgba(199, 214, 255, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-#ability-title{
+#ability-title {
   position: relative;
   text-align: center;
-  top: -5vh;
+  bottom: 20%;
 }
 
-#ability{
+#ability {
   position: relative;
-  bottom: 15vh;
-  width: 350%;
-  height: 350%;
-  left: -15vw;
-  /* Size also might need to be fixed for the images might need to be done to the files themselves to work*/
-  /* Needs to be changed to set image to whatever ability is chosen */
+  bottom: 30%;
 }
-/* Obstacles */ 
+
+/* Obstacles */
 
 #landmine {
   position: absolute;
-  width: 10%;
-  height: 1%;
   border: 2px;
   z-index: -1;
   border-color: red;
   border-style: none;
-  padding-bottom: 6px;
 }
+
+#owlbomb {
+  position: absolute;
+  border: 2px;
+  z-index: -1;
+  border-color: black;
+  border-style: none;
+}
+
+#spikes {
+  position: absolute;
+  border: 2px;
+  z-index: -1;
+  border-color: black;
+  border-style: none;
+}
+
 /* Owls */
 
 #player {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  height: 10rem;
   border: 2px;
   z-index: -1;
   border-color: black;
@@ -155,19 +164,13 @@ html {
 /* Eggs */
 
 #egg {
-  position: absolute;
-  width: 2%;
-  height: 2%;
+  position: relative;
+  height: 75px;
   border: 2px;
   z-index: -1;
   border-color: white;
   border-style: none;
-  padding-bottom: 6em;
-  padding-right: 5em;
-  border-top-left-radius: 4em;
-  border-top-right-radius: 4em;
-  border-bottom-left-radius: 2em;
-  border-bottom-right-radius: 2em;
+  margin: 5px;
 }
 
 /******************* Game Over Menu**********************/
@@ -179,7 +182,7 @@ html {
   height: 600px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 1);
@@ -193,7 +196,7 @@ html {
 #gameOverTitle {
   /* box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2); */
   color: rgba(255, 255, 255, 1);
-  font-family: 'sourcesanspro';
+  font-family: "sourcesanspro";
   font-style: normal;
   font-size: 40px;
   font-weight: bold;
@@ -202,7 +205,7 @@ html {
   text-decoration: none;
   text-transform: none;
   text-align: center;
-  margin:0;
+  margin: 0;
   margin-top: 15%;
 }
 
@@ -213,14 +216,14 @@ html {
   background-color: rgba(142, 172, 255, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-style: none;
-  font-family: 'Tiro Telugu';
+  font-family: "Tiro Telugu";
   font-style: normal;
   font-size: 36px;
   font-weight: bold;
   line-height: 1.2;
   text-decoration: none;
   text-transform: none;
-  color: rgba(0,0,0, 1);
+  color: rgba(0, 0, 0, 1);
   margin-top: 20%;
 }
 
@@ -231,13 +234,101 @@ html {
   background-color: rgba(142, 172, 255, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-style: none;
-  font-family: 'Tiro Telugu';
+  font-family: "Tiro Telugu";
   font-style: normal;
   font-size: 36px;
   font-weight: bold;
   line-height: 1.2;
   text-decoration: none;
   text-transform: none;
-  color: rgba(0,0,0, 1);
+  color: rgba(0, 0, 0, 1);
+  margin-top: 10%;
+}
+
+/********************Pause Menu*********************/
+
+#pauseMenu {
+  display: flex;
+  position: absolute;
+  width: 486px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 1);
+  align-items: center;
+  flex-direction: column;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+#pauseTitle {
+  /* box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2); */
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  margin: 0;
+  margin-top: 15%;
+}
+#resumeBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 12px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: "Tiro Telugu";
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 20%;
+}
+#restartPBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: "Tiro Telugu";
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 15%;
+}
+
+#quitPBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: "Tiro Telugu";
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0, 0, 0, 1);
   margin-top: 10%;
 }
