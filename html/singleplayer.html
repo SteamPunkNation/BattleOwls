@@ -1,85 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Battle Owls</title>
-    <link rel="stylesheet" href="../styles/singleplayer.css" />
-    <script src="../scripts/singleplayer.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-WMYQPRQV59"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-WMYQPRQV59");
-    </script>
-  </head>
+<head>
+  <title>Battle Owls</title>
+  <link rel="stylesheet" href="../styles/singleplayer.css" />
+  <script src="../scripts/singleplayer.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WMYQPRQV59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  <body class="game">
-    <!-- Game Over Menu -->
-    <div id="gameOverMenu">
-      <h2 id="gameOverTitle">Game Over</h2>
-      <button id="restartBtn">Restart</button>
-      <button id="quitBtn">Quit</button>
+    gtag("config", "G-WMYQPRQV59");
+  </script>
+</head>
+
+<body class="game">
+  <!-- Game Over Menu -->
+  <div id="gameOverMenu">
+    <h2 id="gameOverTitle">Game Over</h2>
+    <button id="restartBtn">Restart</button>
+    <button id="quitBtn">Quit</button>
+  </div>
+  <!-- Pause Menu -->
+  <div id="pauseMenu">
+    <h2 id="pauseTitle">PAUSE</h2>
+    <button id="resumeBtn">Resume</button>
+    <button id="restartPBtn">Restart</button>
+    <button id="quitPBtn">Quit</button>
+  </div>
+  <!-- Upper game -->
+  <div id="upperBar">
+    <!-- Blue Bar -->
+    <div id="topBar">
+      <!-- Egg Counter -->
+      <img id="egg-counter" src="../assets/eggs/Egg Clean.png" alt="EggCounter" />
+      <!-- Number of Eggs -->
+      <p id="points">Current Eggs: 0</p>
+      <!-- Singleplayer Text -->
+      <p id="sp-text">Singleplayer</p>
     </div>
-    <!-- Pause Menu -->
-    <div id="pauseMenu">
-      <h2 id="pauseTitle">PAUSE</h2>
-      <button id="resumeBtn">Resume</button>
-      <button id="restartPBtn">Restart</button>
-      <button id="quitPBtn">Quit</button>
+  </div>
+  <div>
+    <!-- Lower Game -->
+    <!-- Player -->
+    <img src="../assets/owls/Owl.png" alt="BattleOwl" id="player" />
+    <!-- Worm -->
+    <div id="worm">
+      <img src="../assets/Worm.png" alt="Worm" width="100px" />
     </div>
-    <!-- Upper game -->
-    <div id="upperBar">
-      <!-- Blue Bar -->
-      <div id="topBar">
-        <!-- Egg Counter -->
-        <img
-          id="egg-counter"
-          src="../assets/eggs/Egg Clean.png"
-          alt="EggCounter"
-        />
-        <!-- Number of Eggs -->
-        <p id="points">Current Eggs: 0</p>
-        <!-- Singleplayer Text -->
-        <p id="sp-text">Singleplayer</p>
-      </div>
+    <!-- Egg -->
+    <img src="../assets/eggs/Egg Clean.png" alt="Egg" id="egg" />
+    <!-- Obstacles -->
+    <img src="../assets/Obstacle.png" alt="" id="landmine" />
+    <img src="../assets/Bomb_Obstacle.png" alt="OwlBomb" id="owlbomb" />
+    <img src="../assets/Spikes.png" alt="Spikes" id="spikes" />
+    <!-- Speed Section -->
+    <div class="speedBG">
+      <!-- Speed Text -->
+      <h3 id="speed-title">Speed</h3>
+      <!-- Speed Int -->
+      <p id="speedValue">0</p>
     </div>
-    <div>
-      <!-- Lower Game -->
-      <!-- Player -->
-      <img src="../assets/owls/Owl.png" alt="BattleOwl" id="player" />
-      <!-- Worm -->
-      <div id="worm">
-        <img src="../assets/Worm.png" alt="Worm" width="100px" />
-      </div>
-      <!-- Egg -->
-      <img src="../assets/eggs/Egg Clean.png" alt="Egg" id="egg" />
-      <!-- Obstacles -->
-      <img src="../assets/Obstacle.png" alt="Landmine" id="landmine" />
-      <img src="../assets/Bomb_Obstacle.png" alt="OwlBomb" id="owlbomb" />
-      <img src="../assets/Spikes.png" alt="Spikes" id="spikes" />
-      <!-- Speed Section -->
-      <div class="speedBG">
-        <!-- Speed Text -->
-        <h3 id="speed-title">Speed</h3>
-        <!-- Speed Int -->
-        <p id="speedValue">0</p>
-      </div>
+    <!-- Ability Section -->
+    <div id="abilityBG">
       <!-- Ability Section -->
-      <div id="abilityBG">
-        <!-- Ability Section -->
-        <h3 id="ability-title">Ability</h3>
-        <!-- Ability Icon -->
-        <div id="ability">
-          <img src="../assets/Slow Time 3.png" alt="Ability" width="100%" />
-        </div>
+      <h3 id="ability-title">Ability</h3>
+      <!-- Ability Icon -->
+      <div id="ability">
+        <img src="../assets/Slow Time 3.png" alt="Ability" width="100%" />
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

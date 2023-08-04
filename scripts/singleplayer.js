@@ -11,21 +11,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const restartPBtn = document.getElementById("restartPBtn");
   const quitPBtn = document.getElementById("quitPBtn");
   const resumeBtn = document.getElementById("resumeBtn");
-  //if (index == 1)
-  //{
-  //player.querySelector('img').src = '../assets/owls/Owl_Red.png';
-  //egg.querySelector('img').src = '../assets/eggs/Egg Red.png';
-  //}
-  //else if (index == 2)
-  //{
-  //player.querySelector('img').src = '../assets/owls/Owl_Blue.png';
-  //egg.querySelector('img').src = '../assets/eggs/Egg Blue.png';
-  //}
-  //else if (index == 3)
-  //{
-  //player.querySelector('img').src = '../assets/owls/Owl_Green.png';
-  //egg.querySelector('img').src = '../assets/eggs/Egg Green.png';
-  //}
   let direction = "";
   let speedMultiplier = 0.25;
   let vw = window.innerWidth;
@@ -88,30 +73,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
       egg.style.top = y + 50 + "px";
     }
   }
-  function moveEgg() {}
+  function moveEgg() { }
 
-  restartBtn.addEventListener("click", function () {
+  restartBtn.addEventListener("click", function() {
     console.log("Joined singleplayer");
     // Redirect to the singleplayer.html page when the button is clicked
     window.location.replace("singleplayer.html");
   });
-  quitBtn.addEventListener("click", function () {
+  quitBtn.addEventListener("click", function() {
     console.log("QUIT");
     // Redirect to mainmenu.html page when the button is clicked
     window.location.replace("/");
   });
 
-  restartPBtn.addEventListener("click", function () {
+  restartPBtn.addEventListener("click", function() {
     console.log("Joined singleplayer");
     // Redirect to the singleplayer.html page when the button is clicked
     window.location.replace("singleplayer.html");
   });
-  quitPBtn.addEventListener("click", function () {
+  quitPBtn.addEventListener("click", function() {
     console.log("QUIT");
     // Redirect to mainmenu.html page when the button is clicked
     window.location.replace("/");
   });
-  resumeBtn.addEventListener("click", function () {
+  resumeBtn.addEventListener("click", function() {
     console.log("RESUME");
     // Remove overlay and resume game when clicked
     pauseOverlayOff();
@@ -240,7 +225,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       bombO.style.right = obstacle.style.right;
       bombO.style.top = obstacle.style.top;
     } else if (eggCount >= 4 && eggCount <= 8) {
-      spike.querySelector("img").src = "../assets/Spikes.png";
+      document.getElementById("spikes").style.display = "flex";
       do {
         spike.style.right = Math.floor(Math.random() * maxRight) + "px";
         spike.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
@@ -262,7 +247,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         playerCollider.top > spikeCollider.bottom &&
         playerCollider.bottom < spikeCollider.top
       );
-      bombO.querySelector("img").src = "../assets/Bomb_Obstacle.png";
+      document.getElementById("owlbomb").style.display = "flex";
       do {
         bombO.style.right = Math.floor(Math.random() * maxRight) + "px";
         bombO.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
@@ -365,7 +350,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const xhr = new XMLHttpRequest();
     const playerData = "../playerData.json";
 
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         // If data can be loaded execute
         if (xhr.status === 200) {
@@ -424,6 +409,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   } else {
     skinSelection(0);
   }
+  document.getElementById("owlbomb").style.display = "none";
+  document.getElementById("spikes").style.display = "none";
   gamerOverOverlayOff();
   pauseOverlayOff();
   wormSpawn();
