@@ -47,6 +47,21 @@ html {
   text-transform: none;
 }
 
+#playerID {
+  position: absolute;
+  /* width: 210px; */
+  left: 105rem;
+  color: rgba(0, 0, 0, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+}
+
 #sp-text {
   position: absolute;
   right: 45%;
@@ -107,6 +122,7 @@ html {
 #ability {
   position: relative;
   bottom: 30%;
+  height: 70%;
 }
 
 /* Obstacles */
@@ -145,6 +161,7 @@ html {
   border-color: black;
   border-style: none;
 }
+
 
 /* Worms */
 
@@ -194,7 +211,7 @@ html {
 
 #gameOverTitle {
   /* box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2); */
-  color: rgba(255, 255, 255, 1);
+  color: darkred;
   font-family: "sourcesanspro";
   font-style: normal;
   font-size: 40px;
@@ -223,7 +240,7 @@ html {
   text-decoration: none;
   text-transform: none;
   color: rgba(0, 0, 0, 1);
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 #quitBtn {
@@ -242,7 +259,46 @@ html {
   text-transform: none;
   color: rgba(0, 0, 0, 1);
   margin-top: 10%;
-}
+} 
+
+#textXP {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+}  
+
+#textLevel {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+}  
+
+#textHighScore {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+} 
 
 /********************Pause Menu*********************/
 
@@ -333,3 +389,66 @@ html {
   color: rgba(0, 0, 0, 1);
   margin-top: 10%;
 }
+/***********************Hint Menu*************************/
+#hintMenu {
+  display: flex;
+  position: absolute;
+  width: 486px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 1);
+  align-items: center;
+  flex-direction: column;
+  align-content: stretch;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+#hintTitle {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  margin: 0;
+  margin-top: 15%;
+} 
+
+#textHint {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+} 
+
+#startBtn {
+  width: 254px;
+  height: 74px;
+  border-radius: 15px;
+  background-color: rgba(142, 172, 255, 1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-style: none;
+  font-family: "Tiro Telugu";
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: none;
+  color: rgba(0, 0, 0, 1);
+} 

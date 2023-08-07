@@ -1,9 +1,10 @@
 {
   "playerName": "Guest",
-  "highScore": 25,
+  "highScore": 3,
   "currentLevel": 1,
-  "currentXP": 4,
+  "currentXP": 2,
   "currentSkinIndex": 0,
+  "currentAbilityIndex": 0,
   "options": [
     {
       "sound": true,
