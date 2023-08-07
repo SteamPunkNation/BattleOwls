@@ -210,18 +210,29 @@ body {
   height: 64px;
   border-radius: 5px;
   border: 2px solid rgb(0, 255, 0);
+  position: relative;
 }
 
-.xpBar span {
-  display: block;
+.xpBar .Bar {
+  
   height: 100%;
-  width: 45;
-  color: rgb(255, 251, 251);
-  line-height: 30px;
-  position: absolute;
-  text-align: end;
-  padding-right: 5px;
+  width: 0%;
   background-color: lime;
+  
+}
+
+#XPText {
+  color: black;
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  z-index: 1;
 }
 
 /***********Customization***********/
@@ -455,3 +466,17 @@ body {
   padding-right: 5px;
   background-color: lime;
 }
+
+#abilityText {
+  color: rgba(255, 255, 255, 1);
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+} 
+

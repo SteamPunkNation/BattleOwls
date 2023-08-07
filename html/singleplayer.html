@@ -22,6 +22,9 @@
   <!-- Game Over Menu -->
   <div id="gameOverMenu">
     <h2 id="gameOverTitle">Game Over</h2>
+    <p id="textXP"> <br></p>
+    <p id="textLevel"> <br></p>
+    <p id="textHighScore"> </p>  
     <button id="restartBtn">Restart</button>
     <button id="quitBtn">Quit</button>
   </div>
@@ -31,6 +34,20 @@
     <button id="resumeBtn">Resume</button>
     <button id="restartPBtn">Restart</button>
     <button id="quitPBtn">Quit</button>
+  </div>
+  <!-- Hint Menu -->
+  <div id="hintMenu">
+    <h2 id="hintTitle">HINTS</h2>
+    <img id="keyboardHint" src="../assets/Hint.png" alt="Hint" width=40%/>
+    <p id="textHint">
+      W or Up Arrow- Move up <br>
+      A or Left Arrow- Move left <br>
+      S or Down Arrow- Move down <br>
+      D or Right Arrow- Move right <br>
+      Q or 0- Use ability <br>
+      P- Pause or Unpause game <br>
+    </p>
+    <button id="startBtn">Start</button>
   </div>
   <!-- Upper game -->
   <div id="upperBar">
@@ -42,6 +59,8 @@
       <p id="points">Current Eggs: 0</p>
       <!-- Singleplayer Text -->
       <p id="sp-text">Singleplayer</p>
+      <!-- Player Name -->
+      <p id="playerID" class="playerID"> </p>
     </div>
   </div>
   <div>
@@ -76,5 +95,4 @@
     </div>
   </div>
 </body>
-
 </html>

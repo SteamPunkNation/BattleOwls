@@ -1,0 +1,41 @@
+{
+    "_comment": "All challenges time is set in hours.",
+    "dailyChallenge":{
+        "dChallenge1": {
+            "name": "Collect Eggs.",
+            "criteria": 20,
+            "xpAmount": 25,
+            "time": 24
+        },"dChallenge2": {
+            "name": "Use abilities.",
+            "criteria": 3,
+            "xpAmount": 3,
+            "time": 24
+        },"dChallenge3": {
+            "name": "Collect Eggs without dying.",
+            "criteria": 5,
+            "xpAmount": 10,
+            "time": 24
+        }
+    },
+    "weeklyChallenge":{
+        "wChallenge1": {
+            "name": "Collect Eggs",
+            "criteria": 100,
+            "xpAmount": 25,
+            "time": 24
+        },
+        "wChallenge2": {
+            "name": "Use each ability once",
+            "criteria": 4,
+            "xpAmount": 25,
+            "time": 24
+        },
+        "wChallenge3": {
+            "name": "Reach high speed (Speed: 20)",
+            "criteria": 20,
+            "xpAmount": 25,
+            "time": 24
+        }
+    }
+}

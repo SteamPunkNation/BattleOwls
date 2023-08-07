@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const restartPBtn = document.getElementById("restartPBtn");
   const quitPBtn = document.getElementById("quitPBtn");
   const resumeBtn = document.getElementById("resumeBtn");
+  const startBtn = document.getElementById("startBtn");
+  const playerData = JSON.parse(localStorage.getItem("playerData"));
+  if (playerData.options[0].hideNames==false)
+  document.getElementById('playerID').innerHTML = playerData.playerName;
+
   let direction = "";
   let speedMultiplier = 0.25;
   let vw = window.innerWidth;
@@ -20,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let moveDistance = 2;
   let eggCount = 0;
   let wormCount = 0;
-  let AccelerateAbility = true;
+  let AccelerateAbility = false;
   let SlowTime = false;
   let Ghost = false;
   let Bomb = false;
@@ -29,17 +34,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let C = 0;
   let t = 0;
   let h = 0;
+  let e = 0;
   let selectedSkinIndex = localStorage.getItem("selectedSkinIndex");
+  let hintCheck = playerData.options[0].enableHints;
+  let EXP = 0;
+  let deathRepeat = false;
+  let OisSpawn = false;
+  let SisSpawn = false;
+  let BisSpawn = false;
+  let WisSpawn = false;
 
-  if (AccelerateAbility == true)
+  if (hintCheck == true) {
+    moveDistance = 0;
+    hintOverlayOn();
+  }
+  else {
+    hintOverlayOff();
+  }
+
+  if (playerData.currentAbilityIndex == 0) {
     abilityIcon.querySelector("img").src = "../assets/Speed Boost.png";
-  else if (SlowTime == true)
+    AccelerateAbility = true;
+  }
+  else if (playerData.currentAbilityIndex == 1) {
     abilityIcon.querySelector("img").src = "../assets/Slow Time 3.png";
-  else if (Ghost == true)
+    SlowTime = true;
+  }
+  else if (playerData.currentAbilityIndex == 2) {
     abilityIcon.querySelector("img").src = "../assets/Ghost.png";
-  else if (Bomb == true)
+    Ghost = true;
+  }
+  else if (playerData.currentAbilityIndex == 3) {
     abilityIcon.querySelector("img").src = "../assets/Bomb.png";
+    Bomb = true;
+  }
   else abilityIcon.querySelector("img").src = "../assets/Blank.png";
+
   // Game functions
   function movePlayer() {
     switch (direction) {
@@ -58,22 +88,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
     player.style.left = x + "px";
     player.style.top = y + "px";
+   
 
     if (direction == "down") {
-      egg.style.left = x + "px";
-      egg.style.top = y - 125 + "px";
+      egg.style.left = x + 20 + "px";
+      egg.style.top = y - 90 + "px";
     } else if (direction == "right") {
-      egg.style.left = x - 100 + "px";
+      egg.style.left = x - 70 + "px";
       egg.style.top = y + 50 + "px";
     } else if (direction == "up") {
-      egg.style.left = x + "px";
-      egg.style.top = y + 150 + "px";
+      egg.style.left = x + 22.5 + "px";
+      egg.style.top = y + 165 + "px";
     } else {
-      egg.style.left = x + 100 + "px";
+      egg.style.left = x + 110 + "px";
       egg.style.top = y + 50 + "px";
     }
   }
-  function moveEgg() { }
 
   restartBtn.addEventListener("click", function() {
     console.log("Joined singleplayer");
@@ -91,16 +121,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Redirect to the singleplayer.html page when the button is clicked
     window.location.replace("singleplayer.html");
   });
+
   quitPBtn.addEventListener("click", function() {
     console.log("QUIT");
     // Redirect to mainmenu.html page when the button is clicked
     window.location.replace("/");
   });
+
   resumeBtn.addEventListener("click", function() {
     console.log("RESUME");
     // Remove overlay and resume game when clicked
     pauseOverlayOff();
     moveDistance = h;
+  });
+
+  startBtn.addEventListener("click", function() {
+    console.log("Start");
+    // Remove overlay and start game when clicked
+    hintOverlayOff();
+    moveDistance = 2;
   });
 
   function pauseOverlayOn() {
@@ -112,11 +151,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   function gamerOverOverlayOn() {
+    EXP = eggCount / 12;
+    XP = Math.floor(EXP);
+    if (eggCount > playerData.highScore) {
+      playerData.highScore = eggCount;
+      document.getElementById('textHighScore').innerHTML = "You broke your High Score! <br> <br> New High Score: " + eggCount;
+      localStorage.setItem("highScore", eggCount);
+    }
+    if (XP > 0) {
+      playerData.currentXP += XP;
+      document.getElementById('textXP').innerHTML = "You have gained " + XP + " exp!";
+    }
+    if (playerData.currentXP >= 10) {
+      playerData.currentLevel += 1;
+      playerData.currentXP -= 10;
+      document.getElementById('textLevel').innerHTML = 'You Leveled Up!';
+    }
     document.getElementById("gameOverMenu").style.display = "flex";
   }
 
   function gamerOverOverlayOff() {
     document.getElementById("gameOverMenu").style.display = "none";
+  }
+
+  function hintOverlayOn() {
+    document.getElementById("hintMenu").style.display = "flex";
+  }
+
+  function hintOverlayOff() {
+    document.getElementById("hintMenu").style.display = "none";
   }
 
   document.addEventListener("keydown", (event) => {
@@ -191,16 +254,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const wormCollider = worm.getBoundingClientRect();
     const maxRight = vw - worm.clientWidth;
     const maxLeft = vh - worm.clientWidth - 100;
-
-    worm.style.right = Math.floor(Math.random() * maxRight) + "px";
-    worm.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
-    if (
-      playerCollider.left < wormCollider.right &&
-      playerCollider.right > wormCollider.left &&
-      playerCollider.top < wormCollider.bottom &&
-      playerCollider.bottom > wormCollider.top
-    )
-      wormSpawn();
+    WisSpawn = true;
+    do {
+      worm.style.right = Math.floor(Math.random() * maxRight) + "px";
+      worm.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
+    } while
+      (
+      playerCollider.left + 250 > wormCollider.right &&
+      playerCollider.right + 250 < wormCollider.left &&
+      playerCollider.top + 250 > wormCollider.bottom &&
+      playerCollider.bottom + 250 < wormCollider.top
+    );
+    WisSpawn = false;
   }
 
   function obstacleSpawn() {
@@ -210,15 +275,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const bombCollider = bombO.getBoundingClientRect();
     const maxRight = vw - obstacle.clientWidth;
     const maxLeft = vh - obstacle.clientWidth - 100;
+    OisSpawn = true;
     do {
       obstacle.style.right = Math.floor(Math.random() * maxRight) + "px";
       obstacle.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
     } while (
-      playerCollider.left > obstacleCollider.right &&
-      playerCollider.right < obstacleCollider.left &&
-      playerCollider.top > obstacleCollider.bottom &&
-      playerCollider.bottom < obstacleCollider.top
+      playerCollider.left + 250 > obstacleCollider.right &&
+      playerCollider.right + 250 < obstacleCollider.left &&
+      playerCollider.top + 250 > obstacleCollider.bottom &&
+      playerCollider.bottom + 250 < obstacleCollider.top
     );
+    OisSpawn = false;
     if (eggCount < 4) {
       spike.style.right = obstacle.style.right;
       spike.style.top = obstacle.style.top;
@@ -226,37 +293,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
       bombO.style.top = obstacle.style.top;
     } else if (eggCount >= 4 && eggCount <= 8) {
       document.getElementById("spikes").style.display = "flex";
+      SisSpawn = true;
       do {
         spike.style.right = Math.floor(Math.random() * maxRight) + "px";
         spike.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
       } while (
-        playerCollider.left > spikeCollider.right &&
-        playerCollider.right < spikeCollider.left &&
-        playerCollider.top > spikeCollider.bottom &&
-        playerCollider.bottom < spikeCollider.top
+        playerCollider.left + 250 > spikeCollider.right &&
+        playerCollider.right + 250 < spikeCollider.left &&
+        playerCollider.top + 250 > spikeCollider.bottom &&
+        playerCollider.bottom + 250 < spikeCollider.top
       );
+      SisSpawn = false;
       bombO.style.right = obstacle.style.right;
       bombO.style.top = obstacle.style.top;
     } else {
+      SisSpawn = true;
       do {
         spike.style.right = Math.floor(Math.random() * maxRight) + "px";
         spike.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
       } while (
-        playerCollider.left > spikeCollider.right &&
-        playerCollider.right < spikeCollider.left &&
-        playerCollider.top > spikeCollider.bottom &&
-        playerCollider.bottom < spikeCollider.top
+        playerCollider.left + 250 > spikeCollider.right &&
+        playerCollider.right + 250 < spikeCollider.left &&
+        playerCollider.top + 250 > spikeCollider.bottom &&
+        playerCollider.bottom + 250 < spikeCollider.top
       );
+      SisSpawn = false;
       document.getElementById("owlbomb").style.display = "flex";
+      BisSpawn = true;
       do {
         bombO.style.right = Math.floor(Math.random() * maxRight) + "px";
         bombO.style.bottom = Math.floor(Math.random() * maxLeft) + "px";
       } while (
-        playerCollider.left > bombCollider.right &&
-        playerCollider.right < bombCollider.left &&
-        playerCollider.top > bombCollider.bottom &&
-        playerCollider.bottom < bombCollider.top
+        playerCollider.left + 300 > bombCollider.right &&
+        playerCollider.right + 300 < bombCollider.left &&
+        playerCollider.top + 300 > bombCollider.bottom &&
+        playerCollider.bottom + 300 < bombCollider.top
       );
+      BisSpawn = false;
     }
   }
   function setHUDSpeed() {
@@ -268,13 +341,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   function eggSpawn() {
-    i++;
     const newEgg = egg.cloneNode(true);
-    newEgg.id = ""; // Remove the id to avoid duplicate IDs on the page
-    newEgg.style.top = player.style.top + y + "px"; //Set the egg's position on the Y-axis
-    newEgg.style.left = player.style.left + x + i * 50 + "px"; // Set the egg's position on the X-axis
+    newEgg.style.left = egg.style.left;
+    newEgg.style.top = egg.style.top;
     document.querySelector(".game").appendChild(newEgg);
     eggs.push(newEgg);
+  }
+
+  function moveEggs() {
+    for (let i = 0; i < eggs.length; i++) {
+      if (direction == "down") {
+        eggs[i].style.left = x + 20 + "px";
+        eggs[i].style.top = y - 100 + "px";
+      } else if (direction == "right") {
+        eggs[i].style.left = x - 70 + "px";
+        eggs[i].style.top = y + 50 + "px";
+      } else if (direction == "up") {
+        eggs[i].style.left = x + 22.5 + "px";
+        eggs[i].style.top = y + 175 + "px";
+      } else {
+        eggs[i].style.left = x + 110 + "px";
+        eggs[i].style.top = y + 50 + "px";
+      }
+    }
   }
 
   function collide() {
@@ -289,8 +378,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         playerCollider.left < wormCollider.right &&
         playerCollider.right > wormCollider.left &&
         playerCollider.top < wormCollider.bottom &&
-        playerCollider.bottom > wormCollider.top
+        playerCollider.bottom > wormCollider.top && WisSpawn == false
       ) {
+        if (playerData.options[0].sound == true) {
+          var audioW = new Audio('../assets/PickUp.wav');
+          audioW.volume = 0.2;
+          audioW.play();
+        }
         wormSpawn();
         moveDistance += speedMultiplier;
         wormCount++;
@@ -305,27 +399,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
           wormCount -= 4;
           eggCount++;
           obstacleSpawn();
-          //eggSpawn(); // Commented out eggSpawn to test the game without the buggy egg spawns, uncomment it when you want to test eggSpawn.
+          //eggSpawn(); 
         }
       }
       if (
         playerCollider.left < obstacleCollider.right &&
         playerCollider.right > obstacleCollider.left &&
         playerCollider.top < obstacleCollider.bottom &&
-        playerCollider.bottom > obstacleCollider.top
+        playerCollider.bottom > obstacleCollider.top &&
+        OisSpawn == false
       ) {
+        if (playerData.options[0].sound == true) {
+          var audioW = new Audio('../assets/Die.wav');
+          audioW.volume = 0.3;
+          audioW.play();
+        }
         moveDistance = 0;
         gamerOverOverlayOn();
+        obstacleSpawn();
       }
       if (eggCount >= 4) {
         if (
           playerCollider.left < spikeCollider.right &&
           playerCollider.right > spikeCollider.left &&
           playerCollider.top < spikeCollider.bottom &&
-          playerCollider.bottom > spikeCollider.top
+          playerCollider.bottom > spikeCollider.top &&
+          SisSpawn == false
         ) {
+          if (playerData.options[0].sound == true) {
+            var audioW = new Audio('../assets/Die.wav');
+            audioW.volume = 0.3;
+            audioW.play();
+          }
           moveDistance = 0;
           gamerOverOverlayOn();
+          obstacleSpawn();
         }
       }
       if (eggCount >= 8) {
@@ -333,10 +441,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
           playerCollider.left < bombCollider.right &&
           playerCollider.right > bombCollider.left &&
           playerCollider.top < bombCollider.bottom &&
-          playerCollider.bottom > bombCollider.top
+          playerCollider.bottom > bombCollider.top &&
+          BisSpawn == false
         ) {
+          if (playerData.options[0].sound == true) {
+            var audioW = new Audio('../assets/Die.wav');
+            audioW.volume = 0.3;
+            audioW.play();
+          }
           moveDistance = 0;
           gamerOverOverlayOn();
+          obstacleSpawn();
         }
       }
     }
@@ -392,6 +507,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function gameLoop() {
     movePlayer();
+    //moveEggs();
     requestAnimationFrame(gameLoop);
     collide();
     setHUDSpeed();
